@@ -12,6 +12,96 @@
         {
           "category": "Contributed",
           "name": "Deneyap Gelistirme Kartlari",
+          "url": "https://github.com/byrmeng/arduino-esp32-core/releases/download/0.0.3/esp32dktestcore-0.0.3.zip",
+          "checksum": "SHA-256:EFF05D917CEC725A0581956AB804C222CBAEB817AE1E38C45EACC51066B4B7A8",
+          "size": "54583296",
+          "help": {
+            "online": ""
+          },
+          "version": "0.0.3",
+          "architecture": "esp32",
+          "archiveFileName": "esp32dktestcore-0.0.3.zip",
+          "boards": [
+            {
+              "name": "Deneyap Kart"
+            },
+            {
+              "name": "Deneyap Kart 1A"
+            },
+            {
+              "name": "Deneyap Kart 1A v2"
+            },
+            {
+              "name": "Deneyap Mini"
+            },
+            {
+              "name": "Deneyap Mini v2"
+            },
+            {
+              "name": "Deneyap Kart G"
+            }
+          ],
+          "toolsDependencies": [
+              {
+                "packager": "esp32",
+                "name": "xtensa-esp32-elf-gcc",
+                "version": "esp-2021r2-patch5-8.4.0"
+              },
+              {
+                "packager": "esp32",
+                "name": "xtensa-esp32s2-elf-gcc",
+                "version": "esp-2021r2-patch5-8.4.0"
+              },
+              {
+                "packager": "esp32",
+                "name": "xtensa-esp32s3-elf-gcc",
+                "version": "esp-2021r2-patch5-8.4.0"
+              },
+              {
+                "packager": "esp32",
+                "name": "xtensa-esp-elf-gdb",
+                "version": "11.2_20220823"
+              },
+              {
+                "packager": "esp32",
+                "name": "riscv32-esp-elf-gcc",
+                "version": "esp-2021r2-patch5-8.4.0"
+              },
+              {
+                "packager": "esp32",
+                "name": "riscv32-esp-elf-gdb",
+                "version": "11.2_20220823"
+              },
+              {
+                "packager": "esp32",
+                "name": "openocd-esp32",
+                "version": "v0.12.0-esp32-20230921"
+              },
+              {
+                "packager": "esp32",
+                "name": "esptool_py",
+                "version": "4.5.1"
+              },
+              {
+                "packager": "esp32",
+                "name": "mkspiffs",
+                "version": "0.2.3"
+              },
+              {
+                "packager": "esp32",
+                "name": "mklittlefs",
+                "version": "3.0.0-gnu12-dc7f933"
+              },
+              {
+                "packager": "arduino",
+                "name": "dfu-util",
+                "version": "0.11.0-arduino5"
+              }
+            ]
+        },
+        {
+          "category": "Contributed",
+          "name": "Deneyap Gelistirme Kartlari",
           "url": "https://github.com/byrmeng/arduino-esp32-core/releases/download/0.0.2/esp32dk-testcore-0.0.2.zip",
           "checksum": "SHA-256:EFF05D917CEC725A0581956AB804C222CBAEB817AE1E38C45EACC51066B4B7A8",
           "size": "54583296",
