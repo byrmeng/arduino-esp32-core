@@ -12,7 +12,7 @@
           {
             "name": "ESP32 DK Test Core",
             "architecture": "esp32",
-            "version": "3.1.3",
+            "version": "0.1.1",
             "category": "Contributed",
             "url": "https://github.com/byrmeng/arduino-esp32-core/releases/download/0.1.1/esp32dktestcore-0.1.1.zip",
             "archiveFileName": "esp32dktestcore-0.1.1.zip",
