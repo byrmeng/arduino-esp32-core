@@ -23,19 +23,22 @@
             },
             "boards": [
               {
-                "name": "ESP32 Dev Board"
+                "name": "Deneyap Kart"
               },
               {
-                "name": "ESP32-S2 Dev Board"
+                "name": "Deneyap Kart 1A"
               },
               {
-                "name": "ESP32-S3 Dev Board"
+                "name": "Deneyap Kart 1A v2"
               },
               {
-                "name": "ESP32-C3 Dev Board"
+                "name": "Deneyap Mini"
               },
               {
-                "name": "Arduino Nano ESP32"
+                "name": "Deneyap Mini v2"
+              },
+              {
+                "name": "Deneyap Kart G"
               }
             ],
             "toolsDependencies": [
