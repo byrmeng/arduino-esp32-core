@@ -10,7 +10,7 @@
         },
         "platforms": [
           {
-            "name": "DK Test Core",
+            "name": "ESP32 DK Test Core",
             "architecture": "esp32",
             "version": "0.1.1",
             "category": "ESP32",
