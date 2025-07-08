@@ -16,7 +16,7 @@
           "category": "Contributed",
           "url": "https://github.com/byrmeng/arduino-esp32-core/releases/download/0.1.2/esp32dktestcore-0.1.2.zip",
           "archiveFileName": "esp32dktestcore-0.1.2.zip",
-          "checksum": "sha256:e1bb92f4d50ad20eef1a95c422090cc8a14f3339c57f308d948a0542dad3c19e",
+          "checksum": "SHA-256:E1BB92F4D50AD20EEF1A95C422090CC8A14F3339C57F308D948A0542DAD3C19E",
           "size": "54812782",
           "help": {
             "online": ""
