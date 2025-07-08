@@ -53,6 +53,7 @@ public:
 
   bool bandwidth(wifi_bandwidth_t bandwidth);
   bool enableNAPT(bool enable = true);
+  bool enableDhcpCaptivePortal();
 
   String SSID(void) const;
   uint8_t stationCount();
@@ -60,6 +61,8 @@ public:
   void _onApEvent(int32_t event_id, void *event_data);
 
 protected:
+  network_event_handle_t _wifi_ap_event_handle;
+
   size_t printDriverInfo(Print &out) const;
 
   friend class WiFiGenericClass;

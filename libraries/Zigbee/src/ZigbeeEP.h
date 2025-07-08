@@ -3,7 +3,7 @@
 #pragma once
 
 #include "ZigbeeCore.h"
-#if SOC_IEEE802154_SUPPORTED && CONFIG_ZB_ENABLED
+#if CONFIG_ZB_ENABLED
 
 #include <Arduino.h>
 #include <ColorFormat.h>
@@ -12,7 +12,7 @@
 #define ZB_CMD_TIMEOUT             10000     // 10 seconds
 #define OTA_UPGRADE_QUERY_INTERVAL (1 * 60)  // 1 hour = 60 minutes
 
-#define ZB_ARRAY_LENTH(arr) (sizeof(arr) / sizeof(arr[0]))
+#define ZB_ARRAY_LENGHT(arr) (sizeof(arr) / sizeof(arr[0]))
 
 #define RGB_TO_XYZ(r, g, b, X, Y, Z)                               \
   {                                                                \
@@ -41,6 +41,10 @@ typedef enum {
 /* Zigbee End Device Class */
 class ZigbeeEP {
 public:
+  // constants and limits
+  static constexpr size_t ZB_MAX_NAME_LENGTH = 32;
+
+  // constructors and destructor
   ZigbeeEP(uint8_t endpoint = 10);
   ~ZigbeeEP() {}
 
@@ -62,29 +66,33 @@ public:
     return _bound_devices;
   }
 
-  static bool bound() {
+  bool bound() {
     return _is_bound;
   }
-  static void allowMultipleBinding(bool bind) {
+  void allowMultipleBinding(bool bind) {
     _allow_multiple_binding = bind;
+  }
+  void setManualBinding(bool bind) {
+    _use_manual_binding = bind;
   }
 
   // Set Manufacturer name and model
-  void setManufacturerAndModel(const char *name, const char *model);
+  bool setManufacturerAndModel(const char *name, const char *model);
 
   // Methods to read manufacturer and model name from selected endpoint and short address
   char *readManufacturer(uint8_t endpoint, uint16_t short_addr, esp_zb_ieee_addr_t ieee_addr);
   char *readModel(uint8_t endpoint, uint16_t short_addr, esp_zb_ieee_addr_t ieee_addr);
 
   // Set Power source and battery percentage for battery powered devices
-  void setPowerSource(zb_power_source_t power_source, uint8_t percentage = 255);
-  void setBatteryPercentage(uint8_t percentage);
-  void reportBatteryPercentage();
+  bool setPowerSource(zb_power_source_t power_source, uint8_t percentage = 0xff, uint8_t voltage = 0xff);  // voltage in 100mV
+  bool setBatteryPercentage(uint8_t percentage);                                                           // 0-100 %
+  bool setBatteryVoltage(uint8_t voltage);                                                                 // voltage in 100mV (example value 35 for 3.5V)
+  bool reportBatteryPercentage();                                                                          // battery voltage is not reportable attribute
 
   // Set time
-  void addTimeCluster(tm time = {}, int32_t gmt_offset = 0);  // gmt offset in seconds
-  void setTime(tm time);
-  void setTimezone(int32_t gmt_offset);
+  bool addTimeCluster(tm time = {}, int32_t gmt_offset = 0);  // gmt offset in seconds
+  bool setTime(tm time);
+  bool setTimezone(int32_t gmt_offset);
 
   // Get time from Coordinator or specific endpoint (blocking until response)
   struct tm getTime(uint8_t endpoint = 1, int32_t short_addr = 0x0000, esp_zb_ieee_addr_t ieee_addr = {0});
@@ -92,6 +100,9 @@ public:
 
   bool epAllowMultipleBinding() {
     return _allow_multiple_binding;
+  }
+  bool epUseManualBinding() {
+    return _use_manual_binding;
   }
 
   // OTA methods
@@ -104,8 +115,9 @@ public:
    * @param manufacturer The manufacturer code (default: 0x1001).
    * @param image_type The image type code (default: 0x1011).
    * @param max_data_size The maximum data size for OTA transfer (default and recommended: 223).
+   * @return true if the OTA client was added successfully, false otherwise.
    */
-  void addOTAClient(
+  bool addOTAClient(
     uint32_t file_version, uint32_t downloaded_file_ver, uint16_t hw_version, uint16_t manufacturer = 0x1001, uint16_t image_type = 0x1011,
     uint8_t max_data_size = 223
   );
@@ -114,12 +126,12 @@ public:
   */
   void requestOTAUpdate();
 
-  // findEndpoind may be implemented by EPs to find and bind devices
+  // findEndpoint may be implemented by EPs to find and bind devices
   virtual void findEndpoint(esp_zb_zdo_match_desc_req_param_t *cmd_req) {};
 
-  //list of all handlers function calls, to be override by EPs implementation
+  // list of all handlers function calls, to be override by EPs implementation
   virtual void zbAttributeSet(const esp_zb_zcl_set_attr_value_message_t *message) {};
-  virtual void zbAttributeRead(uint16_t cluster_id, const esp_zb_zcl_attribute_t *attribute) {};
+  virtual void zbAttributeRead(uint16_t cluster_id, const esp_zb_zcl_attribute_t *attribute, uint8_t src_endpoint, esp_zb_zcl_addr_t src_address) {};
   virtual void zbReadBasicCluster(const esp_zb_zcl_attribute_t *attribute);  //already implemented
   virtual void zbIdentify(const esp_zb_zcl_set_attr_value_message_t *message);
   virtual void zbWindowCoveringMovementCmd(const esp_zb_zcl_window_covering_movement_message_t *message) {};
@@ -130,6 +142,14 @@ public:
   virtual void addBoundDevice(zb_device_params_t *device) {
     _bound_devices.push_back(device);
     _is_bound = true;
+  }
+
+  virtual void removeBoundDevice(uint8_t endpoint, esp_zb_ieee_addr_t ieee_addr);
+  virtual void removeBoundDevice(zb_device_params_t *device);
+
+  virtual void clearBoundDevices() {
+    _bound_devices.clear();
+    _is_bound = false;
   }
 
   void onIdentify(void (*callback)(uint16_t)) {
@@ -144,17 +164,22 @@ private:
   int32_t _read_timezone;
 
 protected:
+  // Convert ZCL status to name
+  const char *esp_zb_zcl_status_to_name(esp_zb_zcl_status_t status);
+
   uint8_t _endpoint;
   esp_zb_ha_standard_devices_t _device_id;
   esp_zb_endpoint_config_t _ep_config;
   esp_zb_cluster_list_t *_cluster_list;
-  static bool _is_bound;
-  static bool _allow_multiple_binding;
+  bool _is_bound;
+  bool _allow_multiple_binding;
+  bool _use_manual_binding;
   std::list<zb_device_params_t *> _bound_devices;
   SemaphoreHandle_t lock;
   zb_power_source_t _power_source;
+  uint8_t _time_status;
 
   friend class ZigbeeCore;
 };
 
-#endif  //SOC_IEEE802154_SUPPORTED && CONFIG_ZB_ENABLED
+#endif  // CONFIG_ZB_ENABLED

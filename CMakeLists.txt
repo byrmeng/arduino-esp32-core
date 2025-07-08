@@ -165,6 +165,7 @@ set(ARDUINO_LIBRARY_LittleFS_SRCS libraries/LittleFS/src/LittleFS.cpp)
 set(ARDUINO_LIBRARY_NetBIOS_SRCS libraries/NetBIOS/src/NetBIOS.cpp)
 
 set(ARDUINO_LIBRARY_OpenThread_SRCS
+  libraries/OpenThread/src/OThread.cpp
   libraries/OpenThread/src/OThreadCLI.cpp
   libraries/OpenThread/src/OThreadCLI_Util.cpp)
 
@@ -297,6 +298,13 @@ set(ARDUINO_LIBRARY_Zigbee_SRCS
   libraries/Zigbee/src/ep/ZigbeeVibrationSensor.cpp
   libraries/Zigbee/src/ep/ZigbeeAnalog.cpp
   libraries/Zigbee/src/ep/ZigbeeRangeExtender.cpp
+  libraries/Zigbee/src/ep/ZigbeeGateway.cpp
+  libraries/Zigbee/src/ep/ZigbeeWindSpeedSensor.cpp
+  libraries/Zigbee/src/ep/ZigbeeIlluminanceSensor.cpp
+  libraries/Zigbee/src/ep/ZigbeePM25Sensor.cpp
+  libraries/Zigbee/src/ep/ZigbeeElectricalMeasurement.cpp
+  libraries/Zigbee/src/ep/ZigbeeBinary.cpp
+  libraries/Zigbee/src/ep/ZigbeePowerOutlet.cpp
   )
 
 set(ARDUINO_LIBRARY_BLE_SRCS

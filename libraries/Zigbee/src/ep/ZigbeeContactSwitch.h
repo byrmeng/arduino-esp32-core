@@ -4,7 +4,7 @@
 
 #include "soc/soc_caps.h"
 #include "sdkconfig.h"
-#if SOC_IEEE802154_SUPPORTED && CONFIG_ZB_ENABLED
+#if CONFIG_ZB_ENABLED
 
 #include "ZigbeeEP.h"
 #include "ha/esp_zigbee_ha_standard.h"
@@ -48,13 +48,13 @@ public:
   void setIASClientEndpoint(uint8_t ep_number);
 
   // Set the contact switch value to closed
-  void setClosed();
+  bool setClosed();
 
   // Set the contact switch value to open
-  void setOpen();
+  bool setOpen();
 
   // Report the contact switch value, done automatically after setting the position
-  void report();
+  bool report();
 
 private:
   void zbIASZoneEnrollResponse(const esp_zb_zcl_ias_zone_enroll_response_message_t *message) override;
@@ -64,4 +64,4 @@ private:
   uint8_t _ias_cie_endpoint;
 };
 
-#endif  //SOC_IEEE802154_SUPPORTED && CONFIG_ZB_ENABLED
+#endif  // CONFIG_ZB_ENABLED

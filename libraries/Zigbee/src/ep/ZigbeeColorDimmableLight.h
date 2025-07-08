@@ -4,7 +4,7 @@
 
 #include "soc/soc_caps.h"
 #include "sdkconfig.h"
-#if SOC_IEEE802154_SUPPORTED && CONFIG_ZB_ENABLED
+#if CONFIG_ZB_ENABLED
 
 #include "ZigbeeEP.h"
 #include "ha/esp_zigbee_ha_standard.h"
@@ -62,12 +62,12 @@ public:
     lightChanged();
   }
 
-  void setLightState(bool state);
-  void setLightLevel(uint8_t level);
-  void setLightColor(uint8_t red, uint8_t green, uint8_t blue);
-  void setLightColor(espRgbColor_t rgb_color);
-  void setLightColor(espHsvColor_t hsv_color);
-  void setLight(bool state, uint8_t level, uint8_t red, uint8_t green, uint8_t blue);
+  bool setLightState(bool state);
+  bool setLightLevel(uint8_t level);
+  bool setLightColor(uint8_t red, uint8_t green, uint8_t blue);
+  bool setLightColor(espRgbColor_t rgb_color);
+  bool setLightColor(espHsvColor_t hsv_color);
+  bool setLight(bool state, uint8_t level, uint8_t red, uint8_t green, uint8_t blue);
 
   bool getLightState() {
     return _current_state;
@@ -105,4 +105,4 @@ private:
   espRgbColor_t _current_color;
 };
 
-#endif  //SOC_IEEE802154_SUPPORTED && CONFIG_ZB_ENABLED
+#endif  // CONFIG_ZB_ENABLED
