@@ -1,7 +1,7 @@
 {
   "packages": [
     {
-      "name": "DeneyapKart",
+      "name": "deneyapkart",
       "maintainer": "byrmeng",
       "websiteURL": "https://github.com/byrmeng/arduino-esp32-core/tree/test-core",
       "email": "byrmeng2@gmail.com",
