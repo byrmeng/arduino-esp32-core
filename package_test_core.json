@@ -1,7 +1,7 @@
 {
   "packages": [
     {
-      "name": "deneyapkart",
+      "name": "deneyapkarttestcore",
       "maintainer": "byrmeng",
       "websiteURL": "https://github.com/byrmeng/arduino-esp32-core/tree/test-core",
       "email": "byrmeng2@gmail.com",
@@ -46,47 +46,47 @@
           ],
           "toolsDependencies": [
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "esp32-arduino-libs",
               "version": "idf-release_v5.4-858a988d-v1"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "esp-x32",
               "version": "2411"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "xtensa-esp-elf-gdb",
               "version": "14.2_20240403"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "esp-rv32",
               "version": "2411"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "riscv32-esp-elf-gdb",
               "version": "14.2_20240403"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "openocd-esp32",
               "version": "v0.12.0-esp32-20250422"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "esptool_py",
               "version": "5.0.dev1"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "mkspiffs",
               "version": "0.2.3"
             },
             {
-              "packager": "esp32",
+              "packager": "deneyapkarttestcore",
               "name": "mklittlefs",
               "version": "3.0.0-gnu12-dc7f933"
             },
