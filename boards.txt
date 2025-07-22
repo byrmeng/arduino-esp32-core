@@ -137,7 +137,7 @@ deneyapkart.menu.PartitionScheme.rainmaker_4MB.build.partitions=rainmaker_4MB_no
 deneyapkart.menu.PartitionScheme.rainmaker_4MB.upload.maximum_size=4038656
 deneyapkart.menu.PartitionScheme.rainmaker_8MB=RainMaker 8MB
 deneyapkart.menu.PartitionScheme.rainmaker_8MB.build.partitions=rainmaker_8MB
-deneyapkart.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4116480
+deneyapkart.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4096000
 
 deneyapkart.menu.CPUFreq.240=240MHz (WiFi/BT)
 deneyapkart.menu.CPUFreq.240.build.f_cpu=240000000L
@@ -538,7 +538,7 @@ deneyapkart1A.menu.PartitionScheme.rainmaker_4MB.build.partitions=rainmaker_4MB_
 deneyapkart1A.menu.PartitionScheme.rainmaker_4MB.upload.maximum_size=4038656
 deneyapkart1A.menu.PartitionScheme.rainmaker_8MB=RainMaker 8MB
 deneyapkart1A.menu.PartitionScheme.rainmaker_8MB.build.partitions=rainmaker_8MB
-deneyapkart1A.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4116480
+deneyapkart1A.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4096000
 
 deneyapkart1A.menu.CPUFreq.240=240MHz (WiFi/BT)
 deneyapkart1A.menu.CPUFreq.240.build.f_cpu=240000000L
@@ -801,7 +801,7 @@ deneyapkart1Av2.menu.PartitionScheme.rainmaker_4MB.build.partitions=rainmaker_4M
 deneyapkart1Av2.menu.PartitionScheme.rainmaker_4MB.upload.maximum_size=4038656
 deneyapkart1Av2.menu.PartitionScheme.rainmaker_8MB=RainMaker 8MB
 deneyapkart1Av2.menu.PartitionScheme.rainmaker_8MB.build.partitions=rainmaker_8MB
-deneyapkart1Av2.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4116480
+deneyapkart1Av2.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4096000
 
 deneyapkart1Av2.menu.CPUFreq.240=240MHz (WiFi)
 deneyapkart1Av2.menu.CPUFreq.240.build.f_cpu=240000000L
@@ -970,7 +970,7 @@ deneyapmini.menu.PartitionScheme.rainmaker_4MB.build.partitions=rainmaker_4MB_no
 deneyapmini.menu.PartitionScheme.rainmaker_4MB.upload.maximum_size=4038656
 deneyapmini.menu.PartitionScheme.rainmaker_8MB=RainMaker 8MB
 deneyapmini.menu.PartitionScheme.rainmaker_8MB.build.partitions=rainmaker_8MB
-deneyapmini.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4116480
+deneyapmini.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4096000
 
 deneyapmini.menu.CPUFreq.240=240MHz (WiFi)
 deneyapmini.menu.CPUFreq.240.build.f_cpu=240000000L
@@ -1160,7 +1160,7 @@ deneyapminiv2.menu.PartitionScheme.rainmaker_4MB.build.partitions=rainmaker_4MB_
 deneyapminiv2.menu.PartitionScheme.rainmaker_4MB.upload.maximum_size=4038656
 deneyapminiv2.menu.PartitionScheme.rainmaker_8MB=RainMaker 8MB
 deneyapminiv2.menu.PartitionScheme.rainmaker_8MB.build.partitions=rainmaker_8MB
-deneyapminiv2.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4116480
+deneyapminiv2.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4096000
 
 deneyapminiv2.menu.CPUFreq.240=240MHz (WiFi)
 deneyapminiv2.menu.CPUFreq.240.build.f_cpu=240000000L
@@ -1329,7 +1329,7 @@ deneyapkartg.menu.PartitionScheme.rainmaker_4MB.build.partitions=rainmaker_4MB_n
 deneyapkartg.menu.PartitionScheme.rainmaker_4MB.upload.maximum_size=4038656
 deneyapkartg.menu.PartitionScheme.rainmaker_8MB=RainMaker 8MB
 deneyapkartg.menu.PartitionScheme.rainmaker_8MB.build.partitions=rainmaker_8MB
-deneyapkartg.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4116480
+deneyapkartg.menu.PartitionScheme.rainmaker_8MB.upload.maximum_size=4096000
 
 deneyapkartg.menu.CPUFreq.160=160MHz (WiFi)
 deneyapkartg.menu.CPUFreq.160.build.f_cpu=160000000L
