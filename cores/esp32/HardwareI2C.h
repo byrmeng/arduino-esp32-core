@@ -20,7 +20,6 @@
 
 #include <inttypes.h>
 #include "Stream.h"
-#include <functional>
 
 class HardwareI2C : public Stream {
 public:
@@ -37,7 +36,6 @@ public:
   virtual size_t requestFrom(uint8_t address, size_t len, bool stopBit) = 0;
   virtual size_t requestFrom(uint8_t address, size_t len) = 0;
 
-  // Update base class to use std::function
-  virtual void onReceive(const std::function<void(int)> &) = 0;
-  virtual void onRequest(const std::function<void()> &) = 0;
+  virtual void onReceive(void (*)(int)) = 0;
+  virtual void onRequest(void (*)(void)) = 0;
 };

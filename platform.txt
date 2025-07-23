@@ -1,14 +1,14 @@
 name=ESP32 Arduino
 version=3.2.1
 
-tools.esp32-arduino-libs.path={runtime.platform.path}/tools/esp32-arduino-libs
-tools.esp32-arduino-libs.path.windows={runtime.platform.path}\tools\esp32-arduino-libs
-tools.xtensa-esp-elf-gcc.path={runtime.platform.path}/tools/xtensa-esp-elf
-tools.xtensa-esp-elf-gdb.path={runtime.platform.path}/tools/xtensa-esp-elf-gdb
-tools.riscv32-esp-elf-gcc.path={runtime.platform.path}/tools/riscv32-esp-elf
-tools.riscv32-esp-elf-gdb.path={runtime.platform.path}/tools/riscv32-esp-elf-gdb
+tools.esp32-arduino-libs.path={runtime.tools.esp32-arduino-libs.path}
 
-tools.esptool_py.path={runtime.platform.path}/tools/esptool
+tools.xtensa-esp-elf-gcc.path={runtime.tools.esp-x32.path}
+tools.xtensa-esp-elf-gdb.path={runtime.tools.xtensa-esp-elf-gdb.path}
+tools.riscv32-esp-elf-gcc.path={runtime.tools.esp-rv32.path}
+tools.riscv32-esp-elf-gdb.path={runtime.tools.riscv32-esp-elf-gdb.path}
+
+tools.esptool_py.path={runtime.tools.esptool_py.path}
 tools.esptool_py.cmd=esptool
 tools.esptool_py.cmd.windows=esptool.exe
 
@@ -266,9 +266,9 @@ debug.toolchain=gcc
 debug.toolchain.path={tools.{build.tarch}-esp-elf-gdb.path}/bin/
 debug.toolchain.prefix={build.tarch}-{build.target}-elf
 debug.server=openocd
-debug.server.openocd.path={runtime.platform.path}/tools/openocd-esp32/bin/openocd
-debug.server.openocd.scripts_dir={runtime.platform.path}/tools/openocd-esp32/share/openocd/scripts/
-debug.server.openocd.scripts_dir.windows={runtime.platform.path}\tools\openocd-esp32\share\openocd\scripts\
+debug.server.openocd.path={runtime.tools.openocd-esp32.path}/bin/openocd
+debug.server.openocd.scripts_dir={runtime.tools.openocd-esp32.path}/share/openocd/scripts/
+debug.server.openocd.scripts_dir.windows={runtime.tools.openocd-esp32.path}\share\openocd\scripts\
 debug.server.openocd.scripts.0=board/{debug_script.{build.mcu}}
 debug.svd_file={runtime.platform.path}/tools/ide-debug/svd/{build.mcu}.svd
 
