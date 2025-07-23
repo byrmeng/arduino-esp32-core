@@ -66,8 +66,8 @@ compiler.ar.cmd={compiler.prefix}gcc-ar
 compiler.size.cmd={compiler.prefix}size
 
 # These can be overridden in platform.local.txt
-compiler.c.extra_flags=
-compiler.cpp.extra_flags=
+compiler.c.extra_flags=-DESP32 -DARDUINO_ARCH_ESP32 -DCORE_DK_VERSION=103014
+compiler.cpp.extra_flags=-DESP32 -DARDUINO_ARCH_ESP32 -DCORE_DK_VERSION=103014
 compiler.S.extra_flags=
 compiler.c.elf.extra_flags=
 compiler.ar.extra_flags=
