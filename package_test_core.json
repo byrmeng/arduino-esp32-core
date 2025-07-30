@@ -12,11 +12,11 @@
         {
           "name": "Deneyap Kart Test Core",
           "architecture": "esp32",
-          "version": "2.0.0",
+          "version": "0.2.0",
           "category": "Contributed",
-          "url": "https://github.com/byrmeng/arduino-esp32-core/releases/download/2.0.0/esp32dktestcore-2.0.0.zip",
-          "archiveFileName": "esp32dktestcore-2.0.0.zip",
-          "checksum": "SHA-256:E908DF4B9A80C8CE87B09979702C6E437C8AF092DDB8037E4ADD066B9C7BE666",
+          "url": "https://github.com/byrmeng/arduino-esp32-core/releases/download/0.2.0/esp32dktestcore-0.2.0.zip",
+          "archiveFileName": "esp32dktestcore-0.2.0.zip",
+          "checksum": "SHA-256:1AB3BBA61C505BFB3C3D986BE4B260074043A55EDFFDBF90ECC0850E42B80533",
           "size": "54822553",
           "help": {
             "online": ""
