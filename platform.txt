@@ -1,5 +1,5 @@
-name=ESP32 Arduino
-version=3.3.1
+name=Deneyap Kart Test Core
+version=0.3.0
 
 tools.esp32-arduino-libs.path={runtime.platform.path}/tools/esp32-arduino-libs
 tools.esp32-arduino-libs.path.windows={runtime.platform.path}\tools\esp32-arduino-libs
@@ -66,8 +66,8 @@ compiler.ar.cmd={compiler.prefix}gcc-ar
 compiler.size.cmd={compiler.prefix}size
 
 # These can be overridden in platform.local.txt
-compiler.c.extra_flags=
-compiler.cpp.extra_flags=
+compiler.c.extra_flags=-DESP32 -DARDUINO_ARCH_ESP32 -DCORE_DK_VERSION=300000
+compiler.cpp.extra_flags=-DESP32 -DARDUINO_ARCH_ESP32 -DCORE_DK_VERSION=300000
 compiler.S.extra_flags=
 compiler.c.elf.extra_flags=
 compiler.ar.extra_flags=
